@@ -48,3 +48,26 @@ Feature: Passing steps
       """
     When I run cucumber.js
     Then the step "a passing step" has status "passed"
+
+  Scenario: async transform
+    Given a file named "features/step_definitions/passing_steps.js" with:
+      """
+      import assert from 'assert'
+      import {defineSupportCode} from 'cucumber'
+      import Promise from 'bluebird'
+
+      defineSupportCode(({Given, addTransform}) => {
+        addTransform({
+          captureGroupRegexps: ['passing'],
+          transformer: async s => s,
+          typeName: 'status'
+        })
+
+        Given('a {status} step', function(status) {
+          assert.equal(status, 'passing')
+          return Promise.resolve()
+        })
+      })
+      """
+    When I run cucumber.js
+    Then the step "a passing step" has status "passed"

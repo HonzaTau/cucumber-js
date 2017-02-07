@@ -11,7 +11,7 @@ async function run({attachmentManager, defaultTimeout, scenarioResult, step, ste
   let error, result, parameters
 
   try {
-    parameters = stepDefinition.getInvocationParameters({scenarioResult, step, parameterRegistry})
+    parameters = await Promise.all(stepDefinition.getInvocationParameters({scenarioResult, step, parameterRegistry}))
   } catch(err) {
     error = err
   }
