@@ -46,8 +46,8 @@ export default class FormatterBuilder {
       Syntax = require(fullSyntaxPath)
     }
     return new StepDefinitionSnippetBuilder({
-      snippetSyntax: new Syntax(snippetInterface),
-      parameterRegistry: supportCodeLibrary.parameterRegistry
+      parameterRegistry: supportCodeLibrary.parameterRegistry,
+      snippetSyntax: new Syntax(snippetInterface)
     })
   }
 

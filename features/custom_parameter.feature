@@ -49,3 +49,7 @@ Feature: Custom Parameter
       """
     When I run cucumber.js
     Then the step "a passing step" has status "passed"
+    And the output contains the text:
+      """
+      addTransform is deprecated and will be removed in a future version. Please use addParameter instead.
+      """

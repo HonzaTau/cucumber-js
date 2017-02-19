@@ -36,10 +36,10 @@ export default class ScenarioRunner {
     return StepRunner.run({
       attachmentManager: this.attachmentManager,
       defaultTimeout: this.supportCodeLibrary.defaultTimeout,
+      parameterRegistry: this.supportCodeLibrary.parameterRegistry,
       scenarioResult: this.scenarioResult,
       step,
       stepDefinition,
-      parameterRegistry: this.supportCodeLibrary.parameterRegistry,
       world: this.world
     })
   }
@@ -102,8 +102,8 @@ export default class ScenarioRunner {
   async runStep(step) {
     const stepDefinitions = this.supportCodeLibrary.stepDefinitions.filter((stepDefinition) => {
       return stepDefinition.matchesStepName({
-        stepName: step.name,
-        parameterRegistry: this.supportCodeLibrary.parameterRegistry
+        parameterRegistry: this.supportCodeLibrary.parameterRegistry,
+        stepName: step.name
       })
     })
     if (stepDefinitions.length === 0) {

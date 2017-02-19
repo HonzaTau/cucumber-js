@@ -9,8 +9,8 @@ describe('StepDefinitionSnippetBuilder', function () {
     this.snippetSyntax = createMock(['build'])
     this.transformsLookup = TransformLookupBuilder.build()
     this.snippetBuilder = new StepDefinitionSnippetBuilder({
-      snippetSyntax: this.snippetSyntax,
-      parameterRegistry: this.transformsLookup
+      parameterRegistry: this.transformsLookup,
+      snippetSyntax: this.snippetSyntax
     })
   })
 

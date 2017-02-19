@@ -22,7 +22,7 @@ export default class StepDefinition {
     return this.buildInvalidCodeLengthMessage(parameters.length, parameters.length + 1)
   }
 
-  getInvocationParameters({step, parameterRegistry}) {
+  getInvocationParameters({parameterRegistry, step}) {
     const cucumberExpression = this.getCucumberExpression(parameterRegistry)
     const stepNameParameters = _.map(cucumberExpression.match(step.name), 'transformedValue')
     const stepArgumentParameters = step.arguments.map(function(arg) {
@@ -49,7 +49,7 @@ export default class StepDefinition {
     return [parameters.length, parameters.length + 1]
   }
 
-  matchesStepName({stepName, parameterRegistry}) {
+  matchesStepName({parameterRegistry, stepName}) {
     const cucumberExpression = this.getCucumberExpression(parameterRegistry)
     return Boolean(cucumberExpression.match(stepName))
   }

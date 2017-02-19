@@ -25,8 +25,8 @@ describe('ScenarioRunner', function () {
       afterHookDefinitions: [],
       beforeHookDefinitions: [],
       defaultTimeout: 5000,
-      stepDefinitions: [],
       parameterRegistry: {},
+      stepDefinitions: [],
       World() {}
     }
     this.options = {}

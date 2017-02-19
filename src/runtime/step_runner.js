@@ -6,7 +6,7 @@ import UserCodeRunner from '../user_code_runner'
 
 const {beginTiming, endTiming} = Time
 
-async function run({attachmentManager, defaultTimeout, scenarioResult, step, stepDefinition, parameterRegistry, world}) {
+async function run({attachmentManager, defaultTimeout, parameterRegistry, scenarioResult, step, stepDefinition, world}) {
   beginTiming()
   const parameters = stepDefinition.getInvocationParameters({scenarioResult, step, parameterRegistry})
   const timeoutInMilliseconds = stepDefinition.options.timeout || defaultTimeout
